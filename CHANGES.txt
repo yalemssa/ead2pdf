@@ -1,0 +1,216 @@
+YALE EAD TO PDF XSLT CHANGES
+
+2012.02.13:
+yul.ead2002.pdf: Minor tweaks.
+yul.ead2002.pdf.config.xsl: Updated values in <xsl:param name="includeAeonRequests">.
+yul.ead2002.pdf.archdesc.xsl: Updated <xsl:template name="aeonPagingInstructions">.
+
+2012-01-09:
+yul.ead2002.pdf.config.xsl: Updated mssa and brbl values in <xsl:param name="includeAeonRequests"> to 'n'.
+
+2012-01-06:
+yul.ead2002.pdf.xsl: Added <xsl:call-template name="aeonPagingInstructions"/> to <xsl:template match="ead:ead/ead:archdesc" mode="pdf">.
+yul.ead2002.pdf.config.xsl: Added <xsl:param name="includeAeonRequests">.
+yul.ead2002.pdf.archdesc.xsl: Added <xsl:template name="aeonPagingInstructions">.
+yul.ead2002.pdf.xsl: Added <xsl:if test="$includeAeonRequests='y'"> to <fo:page-sequence master-reference="ContentsPage">.
+
+2011-11-21: 
+yul.ead2002.pdf.config.xsl: Added Peabody values to <xsl:param name="containersonright">, 
+<xsl:param name="include_requestForm_link">, <xsl:param name="include_dl_search">.
+yul.ead2002.pdf.block.xsl: Updated <xsl:template match="ead:addressline" mode="block">, 
+added <xsl:when test="starts-with(normalize-space(.),'Web') or starts-with(normalize-space(.),'web')">.
+yul.ead2002.pdf.config.xsl: Edited <xsl:param name="containersonright">, changing Arts, VRC values to "n".
+
+2011-11-18:
+yul.ead2002.pdf.config.xsl: Edited <xsl:param name="containersonright">, changing MSSA value to "n".
+yul.ead2002.pdf.block.xsl: Added <xsl:when test="starts-with(normalize-space(.),'http') and not(contains(normalize-space(.),' '))"> 
+to <xsl:template match="ead:addressline" mode="block">.
+
+2011-02-16:
+yul.ead2002.pdf.archdesc.xsl: Changed "newOrbis" to "Orbis" in <xsl:template match="ead:accessrestrict" mode="archdesc">
+and <xsl:template name="did.orbis.search">.
+
+2011-02-08: 
+yul.ead2002.pdf.config.xsl: Updated <xsl:param name="orbisUrl">.
+yul.ead2002.pdf.archdesc.xsl: Updated <xsl:template name="did.orbis.search"> and <xsl:template match="ead:accessrestrict" mode="archdesc"> for newOrbis.
+
+2010-05-26:
+yul.ead2002.pdf.c0x.xsl: Updated <xsl:template name="unitdate.table-cell">.
+yul.ead2002.pdf.c0x.xsl: Updated <xsl:template name="c0x.did.unittitle.1">.
+
+2010-05-24: 
+yul.ead2002.pdf.c0x.xsl: Added <controlaccess> <did> siblings in <xsl:template name="dsc_table_row">.
+yul.ead2002.pdf.c0x.xsl: Added <xsl:template match="ead:controlaccess" mode="c0x">.
+yul.ead2002.pdf.c0x.xsl: Edited <xsl:template match="ead:dao" mode="c0x">.
+
+2010-05-21:
+yul.ead2002.pdf.c0x.xsl: Updated <xsl:template name="container.table-cell.reel"> to include <container type="Frame">.
+
+2010-05-03:
+yul.ead2002.pdf.archdesc.xsl: In <xsl:template match="ead:descgrp[@type='admininfo']" mode="archdesc">, added 
+<xsl:apply-templates select="ead:accessrestrict" mode="archdesc"/>, removed <xsl:call-template name="archdesc.accessrestrict"/>.
+yul.ead2002.pdf.archdesc.xsl: Deleted <xsl:template name="archdesc.accessrestrict">, 
+revised <xsl:template match="ead:accessrestrict" mode="archdesc">
+yul.ead2002.pdf.config.xsl: Revised <xsl:param name="orbiskey">.
+
+2010-03-15:
+yul.ead2002.pdf.archdesc.xsl: Deleted old commented templates.
+yul.ead2002.pdf.block.xsl: Deleted old commented templates.
+yul.ead2002.pdf.c0x.xsl: Deleted old commented templates.
+yul.ead2002.pdf.config.xsl: Deleted old commented templates.
+yul.ead2002.pdf.inline.xsl: Deleted old commented templates.
+yul.ead2002.pdf.titlepage.xsl: Deleted old commented templates.
+yul.ead2002.pdf.xsl: Deleted old commented templates.
+
+2010-02-22:
+yul.ead2002.pdf.titlepage.xsl: Updated <xsl:template name="publicationstmt.dates"> to handle both ead:publicationstmt/ead:date[@type='revised']
+and ead:revisiondesc/ead:change/ead:date.
+
+2010-02-03:
+yul.ead2002.pdf.archdesc.xsl: Tweaked boilerplate BRBL text in <xsl:template name="archdesc.accessrestrict">.
+
+2010-02-01:
+yul.ead2002.pdf.config.xsl: Added <xsl:param name="orbisUrl">.
+yul.ead2002.pdf.archdesc.xsl: Added <xsl:template name="archdesc.accessrestrict"> to include stock text for Beinecke
+offsite storage notes.
+
+2009-12-18:
+yul.ead2002.pdf.titlepage.xsl: Changed URL for divinity shield in <xsl:template name="titlepage.image">.
+
+2009-12-17:
+yul.ead2002.pdf.config.xsl: Changed <xsl:attribute-set name="font.emph"> from <xsl:text>Arial</xsl:text> to <xsl:text>Helvetica</xsl:text>.
+
+2009-12-16:
+yul.ead2002.pdf.config.xsl: Made some changes to <xsl:attribute-set name="font.emph"> for testing. Is now set to Arial.
+yul.ead2002.archdesc.pdf.xsl: Reordered <xsl:call-template name="did.fa.handle.link"/> and 
+<xsl:call-template name="did.requestForm.link"/> in <xsl:template match="ead:did" mode="archdesc">
+
+2009-12-13:
+yul.ead2002.archdesc.pdf.xsl: Fixed typo in <xsl:template match="ead:separatedmaterial" mode="archdesc">, 
+template incorrectly said "match="ead:separatedmaterials".
+
+2009-11-12:
+yul.ead2002.pdf.xsl: Edited <xsl:template name="staticHeader"> and <xsl:template name="runningHeader">, moving display of <unitid> to 
+same line as the page number in the page header.
+
+2009-11-10:
+yul.ead2002.pdf.c0x.xsl: In <xsl:template name="dsc_table_row">, added <xsl:apply-templates select="ead:did//ead:dao" mode="c0x"/>.
+yul.ead2002.pdf.c0x.xsl: Edited <xsl:template name="c0x.did.unittitle.1">, changed so link will not be created if <dao> has
+xlink:actuate='none'.
+yul.ead2002.pdf.c0x.xsl: Edited <xsl:template match="ead:daogrp" mode="c0x">, changed so link will not be created if 
+appropriate <arc> has xlink:actuate='none'.
+
+2009-11-09:
+yul.ead2002.pdf.config.xsl: Changed <xsl:attribute-set name="font.emph"> from Helvetica to Arial.
+
+2009-11-05:
+yul.ead2002.pdf.c0x.xsl: Reordered did-sibling <xsl:apply-templates> in <xsl:template name="dsc_table_row">
+
+2009-10-28:
+yul.ead2002.pdf.inline.xsl: Revised <xsl:template match="ead:emph | ead:title" mode="inline">, separated handling of emph and title for render="italic".  
+<title render="italic"> now displays with underline.
+yul.ead2002.pdf.config.xsl: Extensive changes to attribute sets to reduse as much bold and italic as possible, switch back to primary font.
+yul.ead2002.pdf.config.xsl: Eliminated <xsl:attribute-set name="font.generic">.  Changed many instances of use-attribute-sets="font.generic" to 
+use-attribute-sets="font".
+yul.ead2002.pdf.archdesc.xsl: Changed 1 instance of use-attribute-sets="font.generic" to use-attribute-sets="font".
+yul.ead2002.pdf.inline.xsl: Changed 4 instances of use-attribute-sets="font.generic" to use-attribute-sets="font".
+yul.ead2002.pdf.xsl: Changed 5 instances of use-attribute-sets="font.generic" to use-attribute-sets="font".
+
+2009-10-23:
+yul.ead2002.pdf.archdesc.xsl: Revised <xsl:text> in <xsl:template name="did.orbis.search">, changed "is available" to "may be available".
+yul.ead2002.pdf.archdesc.xsl: Revised <xsl:template match="ead:index" mode="archdesc">, updated handling of ead:listhead/ead:head01 and
+ead:listhead/ead:head02.
+yul.ead2002.pdf.block.xsl: Revised <xsl:template match="ead:list" mode="block">, updated handling of ead:head, ead:listhead/ead:head01, 
+ead:listhead/ead:head02, ead:defitem/ead:label.
+yul.ead2002.pdf.config.xsl: Added <xsl:attribute-set name="inventory.seriesEtc.block">
+yul.ead2002.pdf.c0x.xsl: Revised <xsl:template match="ead:unittitle" mode="c0x">, shifted to <xsl:choose>. Added 
+<xsl:template name="c0x.did.unittitle.1"> and renamed <xsl:template name="c0x.did.unittitle"> as <xsl:template name="c0x.did.unittitle.2">
+yul.ead2002.pdf.config.xsl: Tweaks to <xsl:attribute-set name="font.emph"> and <xsl:attribute-set name="font">.
+yul.ead2002.pdf.config.xsl: In <xsl:attribute-set name="inventory.container.head.table-cell"> and <xsl:attribute-set name="inventory.head.table-cell">, 
+changed use-attribute-sets="font" to use-attribute-sets="font.emph".
+yul.ead2002.pdf.config.xsl: Added <xsl:attribute name="font-size"> to <xsl:attribute-set name="font.emph">.
+yul.ead2002.pdf.block.xsl: Tweahed @use-attribute-sets in <xsl:template match="ead:chronlist" mode="block">.
+yul.ead2002.pdf.config.xsl: Revised <xsl:attribute-set name="table.head">, added use-attribute-sets="font.emph", <xsl:attribute name="font-weight">.
+
+
+2009-10-19: 
+yul.ead2002.pdf.config.xsl: In <xsl:attribute-set name="titlepage.publisher">, changed use-attribute-sets="font.generic" to use-attribute-sets="font.emph".
+yul.ead2002.pdf.config.xsl: In <xsl:attribute-set name="titlepage.publisher">, added <xsl:attribute name="font-size">.
+yul.ead2002.pdf.c0x: In <xsl:template match="ead:physdesc" mode="c0x">, replaced <fo:block> and <fo:wrapper> with <xsl:element>s.
+yul.ead2002.pdf.inline.xsl: Edited handling of @render="sub", @render="super", @render="underline", @render="smcaps" 
+and @render="boldsmcaps" in <xsl:template match="ead:emph | ead:title" mode="inline">.
+
+2009-09-22:
+yul.ead2002.pdf.c0x.xsl: Replaced <xsl:apply-templates select="ead:did//ead:unittitle" mode="c0x"/> with 
+<xsl:choose> in <xsl:template name="dsc_table_row">; added <fo:block> to <xsl:template match="ead:unitid" mode="c0x">.
+
+2009-09-14:
+yul.ead2002.pdf.c0x.xsl: Added <xsl:apply-templates> for accruals, appraisal, prefercite in <xsl:template name="dsc_table_row">.
+yul.ead2002.pdf.c0x.xsl: Added accruals, appraisal, prefercite to component did sibling c0x match template.
+
+2009-09-08:
+yul.ead2002.pdf.archdesc.xsl: Edited <xsl:template match="ead:index" mode="archdesc">, to move @id from <fo:table-row> to <fo:table-cell>.
+yul.ead2002.pdf.inline.xsl: Added <choose> to <xsl:template match="ead:ptr" mode="inline">. Provides special handling for generating <ptr> text
+when the target <unittitle> includes another <ptr>.
+
+2009-08-27:
+yul.ead2002.pdf.inline.xsl: Edited if test in <xsl:template match="ead:extptr" mode="inline">.
+
+2009-08-26:
+yul.ead2002.pdf.c0x.xsl: Extensive changes involving parameter includeunitdatecolumn. 
+yul.ead2002.pdf.config.xsl: Added keep-with-next.within-page="always" to <fo:block> on line 10001in <xsl:template name="section_heading">.
+
+2009-07-31: 
+yul.ead2002.pdf.xsl: Commented out <xsl:variable name="collName">. An artifact from a previous version.
+yul.ead2002.pdf.inline.xsl: Updated <xsl:template match="ead:num" mode="inline">.
+yul.ead2002.pdf.titlepage.xsl: Updated <xsl:template match="ead:titleproper[not(@type='filing')]" mode="titlepage"> 
+and <xsl:element name="fo:block" use-attribute-sets="titlepage.unitid">.
+yul.ead2002.pdf.config.xsl: Updated <xsl:attribute-set name="font.emph">, removing @use-attribute-sets.
+
+2009-07-13:
+yul.ead2002.xhtml.xsl - Revised <xsl:template match="ead:ead/ead:archdesc" mode="pdf">, added <xsl:if> to <fo:table>
+for <descgrp type="admininfo"> children.
+
+2009-07-06:
+yul.ead2002.xhtml.c0x.xsl - Revised <xsl:template name="dsc_table_row">.  Added ead:processinfo and ead:separatedmaterial
+to list of "or" matches in <xsl:if> test starting on line 667.
+
+2009-07-02:
+yul.ead2002.pdf.c0x.xsl - Added <xsl:apply-templates select="ead:relatedmaterial" mode="c0x"/> and 
+<xsl:apply-templates select="ead:separatedmaterial" mode="c0x"/> to <xsl:template name="dsc_table_row">
+
+This CHANGES.txt file starts tracking changes to yul.ead2002.pdf.xsl and related stylesheets as of 2009-05-14.
+
+2009-06-26:
+yul.ead2002.pdf.config.xsl - fixed value for VRC in <xsl:param name="containersonright">
+
+2009-05-27:
+yul.ead2002.pdf.archdesc.xsl - Commented out <fo:block break-before="page"> in templates for admininfo, 
+bioghist, scopecontent, arrangement, replaced with <fo:block>.
+yul.ead2002.pdf.config.xsl - Revised <xsl:template name="section_heading">.  Added keep-with-next.within-page="always" 
+to <fo:block> containing <fo:leader>.
+
+2009-05-22:
+yul.ead2002.pdf.archdesc.xsl - Commented out <xsl:template match="ead:*[@audience='internal']" priority="1" mode="c0x"/> and 
+<xsl:template match="ead:*[@altrender='nodisplay']" priority="2" mode="c0x"/>.
+yul.ead2002.pdf.block.xsl - Commented out <xsl:template match="ead:*[@audience='internal']" priority="1" mode="c0x"/> and 
+<xsl:template match="ead:*[@altrender='nodisplay']" priority="2" mode="c0x"/>.
+yul.ead2002.pdf.c0x.xsl - Added <xsl:template match="ead:*[@audience='internal']" priority="1" mode="c0x"/> and 
+<xsl:template match="ead:*[@altrender='nodisplay']" priority="2" mode="c0x"/> (a previous oversight).  Then commented them both out.
+yul.ead2002.pdf.inline.xsl - Commented out <xsl:template match="ead:*[@audience='internal']" priority="1" mode="c0x"/> and 
+<xsl:template match="ead:*[@altrender='nodisplay']" priority="2" mode="c0x"/>.
+yul.ead2002.pdf.titlepage.xsl - Commented out <xsl:template match="ead:*[@audience='internal']" priority="1" mode="c0x"/> and 
+<xsl:template match="ead:*[@altrender='nodisplay']" priority="2" mode="c0x"/>.
+yul.ead2002.pdf.block.xsl - Commented out <xsl:template match="ead:*[@audience='internal']" priority="1" mode="c0x"/> and 
+<xsl:template match="ead:*[@altrender='nodisplay']" priority="2" mode="c0x"/>.
+
+2009-05-20:
+yul.ead2002.pdf.inline.xsl - Added <xsl:if> that inserts @content-width only for <extptr>s in the <dsc> of music.mss.0014.1.xml.
+
+2009-05-14:
+yul.ead2002.pdf.block.xsl - Added use-attribute-sets="table.cell" to <xsl:template match="ead:entry" mode="block">
+yul.ead2002.pdf.block.xsl - Added <xsl:template match="ead:odd" mode="block">
+yul.ead2002.pdf.config.xsl - Added <xsl:attribute-set name="table.cell">
+yul.ead2002.pdf.config.xsl - Added <xsl:attribute-set name="block.odd">
+yul.ead2002.pdf.config.xsl - Added <xsl:template name="block_odd_id">
+yul.ead2002.pdf.c0x.xsl - In <xsl:template name="dsc_table_row">, for <did> sibling, changed <fo:table-row keep-with-previous.within-page="always"> to <fo:table-row keep-with-previous.within-page="auto">
