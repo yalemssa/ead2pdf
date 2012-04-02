@@ -17,6 +17,7 @@ REM  See the License for the specific language governing permissions and
 REM  limitations under the License.
 REM  $Id: fop.bat 960618 2010-07-05 15:05:55Z spepping $
 
+echo Time started: %time%
 rem %~dp0 is the expanded pathname of the current script under NT
 set LOCAL_FOP_HOME=c:\Program Files\fop-1.0\
 rem if "%OS%"=="Windows_NT" set LOCAL_FOP_HOME=%~dp0
@@ -78,7 +79,8 @@ rem The next four lines force FOP to use Saxon instead of Xalan/whatever the def
 rem Set this to wherever your Saxon 9 jar is on your machine
 set SAXONPATH=C:\Program Files (x86)\Oxygen XML Editor 13\lib\saxon9ee.jar
 set LOCALCLASSPATH=%LOCALCLASSPATH%;%SAXONPATH%
-set JAVAOPTS=%JAVAOPTS% -Xmx1500m -Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl
+set JAVAOPTS=%JAVAOPTS% -Xmx2048m -Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl
+set JAVAOPTS=%JAVAOPTS% -Djava.util.logging.config.file=logging.properties
 
 if "%JAVA_HOME%" == "" goto noJavaHome
 if not exist "%JAVA_HOME%\bin\java.exe" goto noJavaHome
@@ -91,3 +93,6 @@ if "%JAVACMD%" == "" set JAVACMD=java
 :runFop
 rem ECHO "%JAVACMD%" %JAVAOPTS% %LOGCHOICE% %LOGLEVEL% -cp "%LOCALCLASSPATH%" %FOP_OPTS% org.apache.fop.cli.Main %FOP_CMD_LINE_ARGS%
 "%JAVACMD%" %JAVAOPTS% %LOGCHOICE% %LOGLEVEL% -cp "%LOCALCLASSPATH%" %FOP_OPTS% org.apache.fop.cli.Main %FOP_CMD_LINE_ARGS%
+echo %errorlevel%
+echo Time completed: %time%
+exit /b %errorlevel%
