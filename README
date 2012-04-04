@@ -10,7 +10,7 @@ Requirements:
 Installation:
 
 - Download all stylesheets from http://www.library.yale.edu/facc/xsl/fo/ and
-  place them into the "xslt" subdirectory.
+  place them into the "scrits/xslt" subdirectory.
 
 - Edit fop-saxon.bat to point to the proper location of the JAR file for FOP
   and the JAR file for Saxon
@@ -25,7 +25,7 @@ Installation:
           |__ scripts
                |__ xslt
 
-- Create any additional directoriesd as needed.
+- Create any additional directories as needed.
 
 Running the Transformation
 
