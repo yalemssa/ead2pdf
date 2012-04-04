@@ -16,7 +16,7 @@ echo %date% %time% >> %logfile%
 
 for %%x in (d:\EAD2PDF\in\*.xml) do (
   echo Transforming %%~dpnx.xml to D:\EAD2PDF\out\%%~nx.pdf ... >> %logfile% 
-  call fop-saxon -c fop.xconf -xml %%~dpnx.xml -xsl yul.ead2002.pdf.xsl -pdf d:\EAD2PDF\out\%%~nx.pdf >> %logfile% 2>&1 
+  call fop-saxon -c fop.xconf -xml %%~dpnx.xml -xsl xslt\yul.ead2002.pdf.xsl -pdf d:\EAD2PDF\out\%%~nx.pdf >> %logfile% 2>&1 
   set err=!errorlevel!
   if !errorlevel! EQU 0 (
     echo Transformation of %%~dpnx.xml succeeded. Moving file to D:\EAD2PDF\%%~nx.xml >> %logfile%

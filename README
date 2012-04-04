@@ -1,0 +1,42 @@
+This is a set of Windows Batch files to convert EAD to PDF using Saxon and FOP.
+
+Requirements:
+
+- FOP 0.95 or higher (1.0 recommended)
+- SAXON 9 or higher
+- The font Arial Unicode MS
+- Stylesheets from http://www.library.yale.edu/facc/xsl/fo/
+
+Installation:
+
+- Download all stylesheets from http://www.library.yale.edu/facc/xsl/fo/ and
+  place them into the "xslt" subdirectory.
+
+- Edit fop-saxon.bat to point to the proper location of the JAR file for FOP
+  and the JAR file for Saxon
+
+- Edit batch-fop.bat to point to the right directories for the conversion. The batch
+  file expects the following hierarchy of directories currently:
+    D:\
+     |__ EAD2PDF
+          |__ in
+          |__ logs
+          |__ out
+          |__ scripts
+               |__ xslt
+
+- Create any additional directoriesd as needed.
+
+Running the Transformation
+
+- Place EAD files into the "in" directory.
+
+- Run batch-fop.bat.
+
+- If successful, the EAD file will be moved to the "out" directory and the PDF will 
+  be placed in the "out" directory.
+
+- If unsuccessful, the EAD file will be left to the "in" directory.
+
+- Logs will be placed in the "logs" directory and contain information about
+  whether the process was successful.
