@@ -97,7 +97,7 @@ the location of this file.
         <font metrics-url="Arialuni.xml" kerning="yes" embed-url="c:/windows/fonts/arialuni.ttf">
         <!--font metrics-url="fonts/font-metrics/Arialuni.xml" kerning="yes" embed-url="fonts/TrueType/Fonts/ARIALUNI.TTF"-->
            <font-triplet name="ArialUnicodeMS" style="normal" weight="normal"/>
-
+           <font-triplet name="ArialUnicodeMS" style="normal" weight="bold"/>
         </font>
         <!--font metrics-url="fonts/font-metrics/arial.xml" kerning="yes" embed-url="fonts/TrueType/Fonts/arial.ttf"-->
         <font metrics-url="Arialuni.xml" kerning="yes" embed-url="c:/windows/fonts/arialuni.ttf">
