@@ -15,28 +15,18 @@ Installation:
 - Edit fop-saxon.bat to point to the proper location of the JAR file for FOP
   and the JAR file for Saxon
 
-- Edit batch-fop.bat to point to the right directories for the conversion. The batch
-  file expects the following hierarchy of directories currently:
-    D:\
-     |__ EAD2PDF
-          |__ in
-          |__ logs
-          |__ out
-          |__ scripts
-               |__ xslt
-
-- Create any additional directories as needed.
-
-Running the Transformation
+Running the Transformation:
 
 - Place EAD files into the "in" directory.
 
 - Run batch-fop.bat.
 
-- If successful, the EAD file will be moved to the "out" directory and the PDF will 
-  be placed in the "out" directory.
+- If successful, the EAD file will be moved to the "out" directory and the
+  PDF will be placed in the "out" directory.
 
 - If unsuccessful, the EAD file will be left to the "in" directory.
 
 - Logs will be placed in the "logs" directory and contain information about
   whether the process was successful.
+
+- Log level can be modified by editing scripts/logger.properties.
