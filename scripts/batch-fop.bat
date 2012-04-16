@@ -23,7 +23,9 @@ for %%x in (..\in\*.xml) do (
     move %%~dpnx.xml ..\out >> %logfile%
     echo. >> %logfile%
     ) else (
-    echo Error: Transformation of %%~dpnx.xml failed. Exiting. >> %logfile%
+    echo Error: Transformation of %%~dpnx.xml failed. Moving files to problems and exiting. >> %logfile%
+    move %%~dpnx.xml ..\problems >> %logfile%
+    move ..\out\%%~nx.pdf ..\problems >> %logfile%
     echo. >> %logfile%
     exit /b %err%
     )
