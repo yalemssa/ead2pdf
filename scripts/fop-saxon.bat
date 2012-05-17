@@ -73,6 +73,9 @@ set LOCALCLASSPATH=%LOCALCLASSPATH%;%LIBDIR%\jai_imageio.jar
 set LOCALCLASSPATH=%LOCALCLASSPATH%;%LIBDIR%\fop-hyph.jar
 set LOCALCLASSPATH=%LOCALCLASSPATH%;%FOP_HYPHENATION_PATH%
 
+rem Uncomment the next line if using FOP 0.95
+rem set LOCALCLASSPATH=%LOCALCLASSPATH%;%LIBDIR%\xmlgraphics-commons-1.3.1.jar
+
 set JAVAOPTS=-Denv.windir=%WINDIR%
 
 rem The next four lines force FOP to use Saxon instead of Xalan/whatever the default is
